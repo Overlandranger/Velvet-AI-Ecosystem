@@ -4,21 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VELVET AI — Coming Soon</title>
-  <meta name="description" content="Velvet AI — open-source, anti-OEM, Drive-Fi minting manifesto. Coming soon." />
+  <meta name="description" content="Velvet AI — open-source, anti-OEM, in-car minting with Velvet Coin ($VEL). Drive-Fi manifesto. Coming soon." />
   <meta name="theme-color" content="#0b0a0c" />
 
   <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Velvet AI — The Second Door Opens" />
-  <meta property="og:description" content="Rebellion in silk. Freedom on the open road. Drive-Fi minting begins Mid 2026." />
+  <meta property="og:title" content="Velvet AI — In-Car Minting Begins" />
+  <meta property="og:description" content="Rebellion in silk. Freedom on the open road. Velvet Coin ($VEL) goes live soon. Drive-Fi minting Mid 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/" />
-  <meta property="og:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=2" />
+  <meta property="og:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=3" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Velvet AI — The Second Door Opens" />
-  <meta name="twitter:description" content="Rebellion in silk. Freedom on the open road. Drive-Fi minting begins Mid 2026." />
-  <meta name="twitter:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=2" />
+  <meta name="twitter:title" content="Velvet AI — In-Car Minting Begins" />
+  <meta name="twitter:description" content="Velvet Coin ($VEL) is preparing to launch. In-car minting, not just DeFi — Drive-Fi. Coming Mid 2026." />
+  <meta name="twitter:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=3" />
 
   <!-- Favicons & App Icons -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -59,7 +59,7 @@
     .wrap{max-width:1100px; margin:0 auto; padding:36px 18px 60px;}
     .hero{ text-align:center; padding:10px 0 8px }
     h1{ font-size:clamp(2rem,6vw,4rem); margin:.5rem 0; text-shadow:0 0 28px rgba(229,9,20,.25); cursor:default; }
-    .sub{ color:var(--mute); line-height:1.7; max-width:900px; margin:0 auto; }
+    .sub{ color:var(--mute); line-height:1.7; max-width:900px; margin:0.2rem auto 0; }
 
     .countdown{
       margin-top:14px; font-size:clamp(1.1rem,4.8vw,1.8rem); font-weight:800;
@@ -93,9 +93,7 @@
     .links a:hover{ text-decoration:underline }
 
     /* Hidden Second Door button */
-    .secret {
-      display:none; margin-top:10px;
-    }
+    .secret { display:none; margin-top:10px; }
     .secret a{
       display:inline-block; padding:.6rem .9rem; border-radius:12px;
       border:1px solid rgba(255,255,255,.18);
@@ -119,7 +117,8 @@
       <h1 id="logo">Velvet AI</h1>
       <p class="sub">
         Open-source, on-car intelligence riding on Automotive Grade Linux. Hardware that breathes, software that listens.
-        Drive-Fi minting on the horizon.
+        <br><strong>Velvet Coin ($VEL) is set to go live soon.</strong>
+        <br><strong>“Coming soon” means in-car minting — not slides, not vibes. Real motion, real mint.</strong>
       </p>
       <nav style="margin-top:.4rem">
         <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / Updates</a> ·
@@ -131,7 +130,7 @@
     </header>
 
     <section class="hero">
-      <div id="countdown" class="countdown">🚀 Coming Soon — Mid 2026</div>
+      <div id="countdown" class="countdown">🚀 In-Car Minting — Coming Mid 2026</div>
     </section>
 
     <section class="grid">
@@ -143,11 +142,11 @@
         To craft with passion, not permission.<br>
         To build, to break, to rebuild anew.<br>
         To protect Velvet’s spirit — wild, open, untamed.</p>
-        <p>In this engine of code and light, tokens do not idle — they move.<br>
+        <p>In this engine of code and light, <strong>tokens do not idle — they mint in motion.</strong><br>
         Windows roll, stars scatter across the headliner,<br>
-        and value becomes motion.</p>
+        and value becomes velocity.</p>
         <p>This is not DeFi. This is Drive-Fi.<br>
-        Mint by moving. Prove by presence. Own your road.</p>
+        <strong>Mint by moving. Prove by presence. Own your road.</strong></p>
       </article>
 
       <aside class="card links">
@@ -246,7 +245,7 @@
       const dist = targetDate - now;
 
       if(dist <= 0){
-        countdownEl.textContent = "✨ Velvet AI Release Time Has Arrived ✨";
+        countdownEl.textContent = "✨ Velvet AI — In-Car Minting Has Arrived ✨";
         countdownEl.classList.remove('gold');
         countdownEl.style.animation = "none";
         return;
@@ -259,7 +258,7 @@
       const h = Math.floor((dist % (1000*60*60*24))/(1000*60*60));
       const m = Math.floor((dist % (1000*60*60))/(1000*60));
       const s = Math.floor((dist % (1000*60))/1000);
-      countdownEl.textContent = `🚀 Coming Soon — ${d}d ${h}h ${m}m ${s}s until Mid 2026`;
+      countdownEl.textContent = `🚀 In-Car Minting — ${d}d ${h}h ${m}m ${s}s until Mid 2026`;
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
@@ -278,7 +277,7 @@
       }
     });
 
-    // Triple tap on logo unlock
+    // Triple tap on logo unlock (mobile-friendly)
     const logo = document.getElementById('logo');
     let taps = 0, tapTimer=null;
     logo.addEventListener('click', ()=>{
