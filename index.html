@@ -81,6 +81,17 @@
     .sub{ color:var(--mute); max-width:820px; margin:12px auto 0; line-height:1.7;
           font-size:clamp(15px,2.4vw,18px) }
 
+    .countdown{
+      margin-top:20px; font-size:clamp(20px,5vw,32px); font-weight:700;
+      color:var(--accent);
+      letter-spacing:0.05em;
+      animation: glowPulse 1s infinite;
+    }
+    @keyframes glowPulse {
+      0%,100% { text-shadow:0 0 8px rgba(229,9,20,0.5); }
+      50% { text-shadow:0 0 20px rgba(229,9,20,0.9), 0 0 40px rgba(229,9,20,0.6); }
+    }
+
     .grid{ display:grid; gap:16px; margin-top:26px; grid-template-columns: 1fr; }
     @media(min-width:940px){ .grid{ grid-template-columns: 1.18fr .82fr; } }
 
@@ -135,6 +146,7 @@
     <section class="hero">
       <h1>Velvet AI</h1>
       <p class="sub">Open-source, on-car intelligence riding on Automotive Grade Linux. Hardware that breathes, software that listens. Drive-Fi minting on the horizon.</p>
+      <div class="countdown" id="countdown">🚀 Coming Soon — Target Release: Mid 2026</div>
     </section>
 
     <section class="grid" id="manifesto">
@@ -175,7 +187,7 @@ Mint by moving. Prove by presence. Own your road.
   </div>
 
   <script>
-    // Starfield
+    // Starfield background
     const stars = document.getElementById('stars');
     const twinkle = document.getElementById('twinkle');
     const S = stars.getContext('2d');
@@ -198,6 +210,31 @@ Mint by moving. Prove by presence. Own your road.
       requestAnimationFrame(frame);
     }
     resize(); frame();
+
+    // Countdown timer
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = new Date("2026-07-01T00:00:00Z").getTime();
+
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if(distance <= 0){
+        countdownEl.textContent = "✨ Velvet AI Release Time Has Arrived ✨";
+        countdownEl.style.animation = "none"; // stop pulsing once live
+        return;
+      }
+
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((distance % (1000*60)) / 1000);
+
+      countdownEl.textContent = `🚀 Coming Soon — ${days}d ${hours}h ${mins}m ${secs}s until Mid 2026`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
