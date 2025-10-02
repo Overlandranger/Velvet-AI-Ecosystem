@@ -34,3 +34,6 @@ Mint by moving. Prove by presence. Own your road.
   </footer>
 </body>
 </html>
+---
+_Some doors only open if you scroll far enough..._  
+👉 [Investor Overview](INVESTORS.md)
