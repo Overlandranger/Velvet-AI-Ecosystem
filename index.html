@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Rebellion in silk. Freedom on the open road. Drive-Fi minting begins Mid 2026." />
   <meta name="twitter:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=2" />
 
-  <!-- Favicons -->
+  <!-- Favicons & App Icons -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -29,114 +29,268 @@
   <link rel="apple-touch-icon" href="apple-touch-icon-512.png" sizes="512x512">
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #0b0a0c;
-      color: #eee;
+    :root{
+      --bg:#0b0a0c; --bg2:#171217;
+      --ink:#f2eef3; --mute:#9b909a; --accent:#e50914;
+      --gold:#E8C544; --gold-deep:#B9921F;
+      --glass:rgba(255,255,255,.08);
     }
-    header, footer {
-      text-align: center;
-      padding: 1rem;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(229,9,20,.10), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(229,9,20,.08), transparent 60%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      overflow-x:hidden;
     }
-    .hero {
-      text-align: center;
-      padding: 2rem 1rem;
+
+    /* Star canvases + breathing glow */
+    #stars,#twinkle{position:fixed; inset:0; z-index:-2; width:100vw; height:100vh; display:block}
+    #twinkle{mix-blend-mode:screen; opacity:.45}
+    .breath{position:fixed; inset:0; z-index:-1; pointer-events:none; filter:blur(48px); opacity:.6;
+      background:radial-gradient(160px 160px at 50% 18%, rgba(229,9,20,.14), transparent 60%);
+      animation:pulse 7s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.08);opacity:.85}}
+
+    header, footer { text-align:center; padding:1rem; }
+    .wrap{max-width:1100px; margin:0 auto; padding:36px 18px 60px;}
+    .hero{ text-align:center; padding:10px 0 8px }
+    h1{ font-size:clamp(2rem,6vw,4rem); margin:.5rem 0; text-shadow:0 0 28px rgba(229,9,20,.25); cursor:default; }
+    .sub{ color:var(--mute); line-height:1.7; max-width:900px; margin:0 auto; }
+
+    .countdown{
+      margin-top:14px; font-size:clamp(1.1rem,4.8vw,1.8rem); font-weight:800;
+      color:var(--accent); letter-spacing:.04em;
+      animation:glowPulse 1s infinite;
     }
-    h1 {
-      font-size: clamp(2rem, 6vw, 4rem);
-      margin: 0.5rem 0;
+    @keyframes glowPulse{
+      0%,100%{ text-shadow:0 0 8px rgba(229,9,20,.5) }
+      50%{ text-shadow:0 0 20px rgba(229,9,20,.95), 0 0 40px rgba(229,9,20,.6) }
     }
-    .countdown {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #e50914;
-      margin-top: 1rem;
-      text-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
+    .countdown.gold{
+      color:var(--gold);
+      animation:goldPulse 1s infinite;
     }
-    .grid {
-      display: grid;
-      gap: 1rem;
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
+    @keyframes goldPulse{
+      0%,100%{ text-shadow:0 0 10px rgba(232,197,68,.4) }
+      50%{ text-shadow:0 0 22px rgba(232,197,68,.9), 0 0 36px rgba(185,146,31,.6) }
     }
-    @media (min-width: 800px) {
-      .grid { grid-template-columns: 2fr 1fr; }
+
+    .grid{ display:grid; gap:16px; margin-top:24px; padding:0 2px }
+    @media(min-width:860px){ .grid{ grid-template-columns: 1.6fr .9fr; } }
+    .card{
+      background:linear-gradient(180deg,#141015,#0f0c10);
+      border:1px solid var(--glass); border-radius:16px; padding:18px 20px;
+      box-shadow:0 2px 22px rgba(0,0,0,.35);
     }
-    .card {
-      background: #141015;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 0 16px rgba(0,0,0,0.4);
+    .card h2{ margin:.2rem 0 1rem; font-size:1rem; letter-spacing:.14em; opacity:.9; text-transform:uppercase }
+    .links ul{ list-style:none; padding:0; margin:0 }
+    .links li{ margin:.6rem 0 }
+    .links a{ color:var(--ink); text-decoration:none }
+    .links a:hover{ text-decoration:underline }
+
+    /* Hidden Second Door button */
+    .secret {
+      display:none; margin-top:10px;
     }
-    a { color: #f2f2f2; }
-    a:hover { color: #e50914; }
-    footer { font-size: 0.9rem; color: #999; }
+    .secret a{
+      display:inline-block; padding:.6rem .9rem; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:linear-gradient(180deg,#1a1418,#120f12);
+      color:var(--ink); text-decoration:none; font-weight:700; letter-spacing:.02em;
+      box-shadow:0 10px 40px rgba(229,9,20,.18);
+    }
+    .secret a:hover{ border-color:rgba(229,9,20,.45); box-shadow:0 16px 54px rgba(229,9,20,.26); }
+
+    footer{ margin-top:34px; color:#bdb2bb; font-size:.95rem; border-top:1px solid var(--glass); padding-top:18px }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Velvet AI</h1>
-    <p>Open-source, on-car intelligence riding on Automotive Grade Linux.<br>
-    Hardware that breathes, software that listens.<br>
-    Drive-Fi minting on the horizon.</p>
-    <nav>
-      <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / Updates</a> ·
-      <a href="https://t.me/+BbV42gXzdzM2NzMx" target="_blank" rel="noopener">Telegram</a>
-    </nav>
-  </header>
+  <!-- star layers -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="twinkle" aria-hidden="true"></canvas>
+  <div class="breath" aria-hidden="true"></div>
 
-  <section class="hero">
-    <div id="countdown" class="countdown">🚀 Coming Soon — Mid 2026</div>
-  </section>
+  <div class="wrap">
+    <header>
+      <h1 id="logo">Velvet AI</h1>
+      <p class="sub">
+        Open-source, on-car intelligence riding on Automotive Grade Linux. Hardware that breathes, software that listens.
+        Drive-Fi minting on the horizon.
+      </p>
+      <nav style="margin-top:.4rem">
+        <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / Updates</a> ·
+        <a href="https://t.me/+BbV42gXzdzM2NzMx" target="_blank" rel="noopener">Telegram</a>
+      </nav>
+      <div id="secretDoor" class="secret">
+        <a href="./INVESTORS.md">🔑 Second Door</a>
+      </div>
+    </header>
 
-  <section class="grid">
-    <article class="card">
-      <h2>The Velvet Oath — Red Paper Teaser</h2>
-      <p>I, the keeper of Velvet’s fire, do solemnly swear—</p>
-      <p>To honor freedom over chains.<br>
-      To challenge the ordinary, defy the OEM.<br>
-      To craft with passion, not permission.<br>
-      To build, to break, to rebuild anew.<br>
-      To protect Velvet’s spirit — wild, open, untamed.</p>
-      <p>In this engine of code and light, tokens do not idle — they move.<br>
-      Windows roll, stars scatter across the headliner,<br>
-      and value becomes motion.</p>
-      <p>This is not DeFi. This is Drive-Fi.<br>
-      Mint by moving. Prove by presence. Own your road.</p>
-    </article>
+    <section class="hero">
+      <div id="countdown" class="countdown">🚀 Coming Soon — Mid 2026</div>
+    </section>
 
-    <aside class="card">
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / coin_velvet</a></li>
-        <li><a href="https://t.me/+BbV42gXzdzM2NzMx" target="_blank" rel="noopener">Telegram community</a></li>
-      </ul>
-    </aside>
-  </section>
+    <section class="grid">
+      <article class="card">
+        <h2>The Velvet Oath — Red Paper Teaser</h2>
+        <p>I, the keeper of Velvet’s fire, do solemnly swear—</p>
+        <p>To honor freedom over chains.<br>
+        To challenge the ordinary, defy the OEM.<br>
+        To craft with passion, not permission.<br>
+        To build, to break, to rebuild anew.<br>
+        To protect Velvet’s spirit — wild, open, untamed.</p>
+        <p>In this engine of code and light, tokens do not idle — they move.<br>
+        Windows roll, stars scatter across the headliner,<br>
+        and value becomes motion.</p>
+        <p>This is not DeFi. This is Drive-Fi.<br>
+        Mint by moving. Prove by presence. Own your road.</p>
+      </article>
 
-  <footer>
-    © 2025 Velvet — Open-source, anti-lock-in.<br>
-    <em>“Rebellion in silk. Freedom on the open road.”</em>
-  </footer>
+      <aside class="card links">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / @coin_velvet</a></li>
+          <li><a href="https://t.me/+BbV42gXzdzM2NzMx" target="_blank" rel="noopener">Telegram community</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      © 2025 Velvet — Open-source, anti-lock-in.<br>
+      <em>“Rebellion in silk. Freedom on the open road.”</em>
+    </footer>
+  </div>
 
   <script>
-    // Countdown timer to Mid-2026
+    // --- STARFIELD with parallax & twinkles ---------------------------------
+    const stars = document.getElementById('stars');
+    const twinkle = document.getElementById('twinkle');
+    const S = stars.getContext('2d');
+    const T = twinkle.getContext('2d');
+    let W, H, field=[], sparkles=[];
+    let parallaxX = 0, parallaxY = 0;
+
+    function size(){ W = stars.width = twinkle.width = window.innerWidth; H = stars.height = twinkle.height = window.innerHeight; initStars(); }
+    window.addEventListener('resize', size);
+
+    function initStars(){
+      field = []; sparkles=[];
+      const n = Math.min(240, Math.floor(W*H/8500));
+      for(let i=0;i<n;i++){
+        field.push({x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.2+0.2, a:Math.random()*0.6+0.2, v:(Math.random()*0.2+0.05), d:Math.random()*0.8+0.2});
+      }
+      for(let i=0;i<60;i++){
+        sparkles.push({x:Math.random()*W, y:Math.random()*H*0.5, r:Math.random()*1.6+0.4, p:Math.random()*Math.PI*2, s:Math.random()*0.015+0.005, d:Math.random()*0.6+0.2});
+      }
+    }
+
+    function tick(){
+      S.clearRect(0,0,W,H);
+      S.fillStyle = 'rgba(255,255,255,0.9)';
+      for(const st of field){
+        st.y -= st.v; if(st.y < -2) st.y = H + 2;
+        const px = st.x + parallaxX * st.d;
+        const py = st.y + parallaxY * st.d;
+        S.globalAlpha = st.a;
+        S.beginPath(); S.arc(px, py, st.r, 0, Math.PI*2); S.fill();
+      }
+      T.clearRect(0,0,W,H);
+      for(const sp of sparkles){
+        sp.p += sp.s;
+        const al = 0.35 + Math.sin(sp.p)*0.35;
+        const px = sp.x + parallaxX * sp.d;
+        const py = sp.y + parallaxY * sp.d;
+        T.fillStyle = `rgba(229,9,20,${al})`;
+        T.beginPath(); T.arc(px, py, sp.r, 0, Math.PI*2); T.fill();
+      }
+      requestAnimationFrame(tick);
+    }
+    size(); tick();
+
+    // Parallax via pointer/tilt
+    window.addEventListener('mousemove', (e)=>{
+      const cx = W/2, cy = H/2;
+      parallaxX = (e.clientX - cx) * -0.02;
+      parallaxY = (e.clientY - cy) * -0.02;
+    }, {passive:true});
+    window.addEventListener('deviceorientation', (e)=>{
+      if (e.beta===null || e.gamma===null) return;
+      parallaxX = (e.gamma||0) * -1.2;
+      parallaxY = (e.beta||0)  *  0.8;
+    }, {passive:true});
+
+    // Click spark bursts
+    function sparkBurst(x,y){
+      for(let i=0;i<12;i++){
+        const r = Math.random()*1.4+0.4;
+        const a = Math.random()*Math.PI*2;
+        const dx = Math.cos(a)*Math.random()*38;
+        const dy = Math.sin(a)*Math.random()*38;
+        T.fillStyle = i%3? 'rgba(229,9,20,.8)' : 'rgba(232,197,68,.9)';
+        T.beginPath(); T.arc(x+dx, y+dy, r, 0, Math.PI*2); T.fill();
+      }
+    }
+    window.addEventListener('click', (e)=> sparkBurst(e.clientX, e.clientY));
+
+    // --- COUNTDOWN with final-24h gold shift --------------------------------
     const countdownEl = document.getElementById("countdown");
     const targetDate = new Date("2026-07-01T00:00:00Z").getTime();
+    const ONE_DAY = 24*60*60*1000;
+
     function updateCountdown(){
-      const now = new Date().getTime();
+      const now = Date.now();
       const dist = targetDate - now;
-      if(dist <= 0){ countdownEl.textContent = "✨ Velvet AI Release Time Has Arrived ✨"; return; }
+
+      if(dist <= 0){
+        countdownEl.textContent = "✨ Velvet AI Release Time Has Arrived ✨";
+        countdownEl.classList.remove('gold');
+        countdownEl.style.animation = "none";
+        return;
+      }
+
+      // Gold mode in last 24h
+      if(dist < ONE_DAY) countdownEl.classList.add('gold');
+
       const d = Math.floor(dist / (1000*60*60*24));
       const h = Math.floor((dist % (1000*60*60*24))/(1000*60*60));
       const m = Math.floor((dist % (1000*60*60))/(1000*60));
       const s = Math.floor((dist % (1000*60))/1000);
       countdownEl.textContent = `🚀 Coming Soon — ${d}d ${h}h ${m}m ${s}s until Mid 2026`;
     }
-    setInterval(updateCountdown,1000);
+    setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // --- SECRET DOOR unlock (Konami code + triple-tap) ----------------------
+    const secret = document.getElementById('secretDoor');
+    let sequence = [];
+    const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+
+    window.addEventListener('keydown', (e)=>{
+      sequence.push(e.key);
+      if(sequence.length > KONAMI.length) sequence.shift();
+      if(KONAMI.every((k,i)=> sequence[i]?.toLowerCase() === k.toLowerCase())){
+        secret.style.display = 'block';
+        sparkBurst(window.innerWidth/2, 80);
+      }
+    });
+
+    // Triple tap on logo unlock
+    const logo = document.getElementById('logo');
+    let taps = 0, tapTimer=null;
+    logo.addEventListener('click', ()=>{
+      taps++;
+      if(tapTimer) clearTimeout(tapTimer);
+      tapTimer = setTimeout(()=>{ taps=0; }, 600);
+      if(taps>=3){
+        secret.style.display = 'block';
+        sparkBurst(window.innerWidth/2, 80);
+        taps=0;
+      }
+    });
   </script>
 </body>
 </html>
