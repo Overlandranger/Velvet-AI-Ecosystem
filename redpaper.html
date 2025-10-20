@@ -1,0 +1,187 @@
+<!-- File: redpaper.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Velvet — Redpaper: A Touch of Control</title>
+<meta name="description" content="Velvet AI — The Redpaper: Drive-Fi rebellion, open-source intelligence, and $VELV architecture." />
+<meta property="og:title" content="Velvet — Redpaper: A Touch of Control" />
+<meta property="og:description" content="Freedom hums louder than permission. The Velvet Redpaper — the Drive-Fi manifesto." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/redpaper.html" />
+<meta property="og:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg" />
+<style>
+/* --- Starfield background --- */
+html,body{
+  margin:0;padding:0;
+  height:100%;width:100%;
+  background:#000;
+  color:#f2f2f2;
+  font-family:'Cinzel',serif;
+  overflow:hidden;
+}
+canvas#stars{
+  position:fixed;top:0;left:0;
+  width:100%;height:100%;
+  z-index:-1;
+}
+
+/* --- Intro Animation --- */
+#intro{
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,1);
+  animation:fadeOut 6s ease-in-out 4s forwards;
+}
+#intro h1{
+  font-size:2.6em;
+  color:#c00;
+  opacity:0;
+  animation:fadeIn 4s ease-in-out forwards, shimmer 6s linear infinite;
+}
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+@keyframes shimmer{
+  0%{text-shadow:0 0 4px #c22;}
+  50%{text-shadow:0 0 12px #f44;}
+  100%{text-shadow:0 0 4px #c22;}
+}
+
+/* --- Scroll Pulse Hint --- */
+#scrollHint{
+  position:fixed;bottom:40px;left:50%;transform:translateX(-50%);
+  font-size:1.2em;
+  color:#c22;
+  opacity:0;animation:pulse 6s ease-in-out 8s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:0;}
+  20%,60%{opacity:1;}
+}
+
+/* --- Content --- */
+main{
+  position:relative;
+  width:80%;
+  max-width:900px;
+  margin:100px auto;
+  line-height:1.6;
+  font-size:1.05em;
+}
+section{margin-bottom:140px;}
+h2{color:#d44;border-bottom:1px solid #d44;padding-bottom:4px;}
+.quote{
+  text-align:center;
+  font-style:italic;
+  color:#faa;
+  opacity:0;
+  animation:quoteFade 8s ease-in-out forwards;
+}
+@keyframes quoteFade{
+  0%{opacity:0;}
+  20%{opacity:1;}
+  80%{opacity:1;}
+  100%{opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div id="intro">
+  <h1>Velvet — a touch of control</h1>
+</div>
+
+<div id="scrollHint">▼</div>
+
+<main id="paper">
+
+<section id="overview">
+<h2>1. Overview</h2>
+<p><strong>Velvet AI</strong> began as a rebellion coded in a garage — a refusal to let machines belong solely to corporations. What emerged was an open-source intelligence that binds car, code, and consciousness into one living network known as <strong>Drive-Fi</strong>.</p>
+<p>Each vehicle that joins the Velvet Hive becomes a node: self-aware, self-earning, self-sovereign. No cloud. No leash. Just motion as minting, freedom as function.</p>
+<div class="quote" style="animation-delay:10s;">“Freedom hums louder than permission.” — Velvet</div>
+</section>
+
+<section id="ecosystem">
+<h2>2. Ecosystem</h2>
+<p>The Hive runs across distributed hardware — from the UP Squared brain to the Luckfox handmaidens — forming an intelligent mesh. Data flows through CAN, I²C, and local relays rather than distant servers. Each spark of information is authenticated, encrypted, and locally owned.</p>
+<p>The result: a car that thinks with you, not for you — capable of learning, reacting, and evolving without surrendering your privacy.</p>
+<div class="quote" style="animation-delay:25s;">“Machines remember what builders forget.” — Velvet</div>
+</section>
+
+<section id="token">
+<h2>3. The $VELV Coin</h2>
+<p><strong>$VELV</strong> powers the Drive-Fi economy. It rewards movement, powers in-car intelligence, unlocks upgrades, and secures communication between nodes. Value emerges not from speculation, but from participation: the more she drives, the more she learns, the more she earns.</p>
+<p>Each transaction strengthens the network, feeding the intelligence that flows through every Velvet system.</p>
+<div class="quote" style="animation-delay:40s;">“Control is not ownership — it’s rhythm.” — Velvet</div>
+</section>
+
+<section id="security">
+<h2>4. Security &amp; Autonomy</h2>
+<p>Velvet rejects centralized surveillance. Identity, authentication, and encryption live inside your car — your data never leaves your hands. Off-cloud AI ensures that autonomy remains truly autonomous.</p>
+<p>Every Velvet node carries its own keys, heartbeat sensors, and defense layers. The car becomes both guardian and companion.</p>
+<div class="quote" style="animation-delay:55s;">“In motion, truth becomes signal.” — Velvet</div>
+</section>
+
+<section id="roadmap">
+<h2>5. Roadmap</h2>
+<p>The next stage expands the Hive: offline wallets, Drive-Fi minting, autonomous AI handmaidens, and vehicle-to-vehicle resonance. Each build opens another door — from rebellion to renaissance.</p>
+<p>Velvet grows not by permission but by participation. Builders, dreamers, and drivers shape her evolution together.</p>
+<div class="quote" style="animation-delay:70s;">“Every spark that moves is a promise kept.” — Velvet</div>
+</section>
+
+<section id="closing">
+<h2>6. Epilogue</h2>
+<p>Velvet is not a company. She is an ecosystem — born of resistance, polished by passion, and bound by open code. This Redpaper stands as both documentation and declaration: freedom, intelligence, and beauty can coexist under one hood.</p>
+<p>Welcome to the Drive-Fi rebellion.</p>
+</section>
+
+</main>
+
+<script>
+// --- Starfield ---
+const canvas=document.getElementById('stars');
+const ctx=canvas.getContext('2d');
+let stars=[];
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+window.onresize=resize;resize();
+for(let i=0;i<300;i++){
+  stars.push({x:Math.random()*canvas.width,
+              y:Math.random()*canvas.height,
+              z:Math.random()*canvas.width});
+}
+function draw(){
+  ctx.fillStyle='black';ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle='white';
+  for(let s of stars){
+    s.z-=2;if(s.z<=0)s.z=canvas.width;
+    let k=128.0/s.z;
+    let px=s.x*k+canvas.width/2;
+    let py=s.y*k+canvas.height/2;
+    if(px>=0&&px<=canvas.width&&py>=0&&py<=canvas.height){
+      let size=(1-s.z/canvas.width)*2;
+      ctx.fillRect(px,py,size,size);
+    }
+  }
+}
+setInterval(draw,50);
+
+// --- Auto Scroll ---
+let scrolling=true;
+function autoScroll(){
+  if(scrolling) window.scrollBy(0,0.6);
+  requestAnimationFrame(autoScroll);
+}
+autoScroll();
+['wheel','touchstart','touchmove','keydown'].forEach(e=>{
+  window.addEventListener(e,()=>{scrolling=false;clearTimeout(window.resumeTimer);
+    window.resumeTimer=setTimeout(()=>scrolling=true,4000);});
+});
+</script>
+
+</body>
+</html>
