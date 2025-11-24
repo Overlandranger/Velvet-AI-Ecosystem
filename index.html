@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VELVET AI — Coming Soon</title>
-  <meta name="description" content="Velvet AI — open-source, anti-OEM, in-car minting with Velvet Coin ($VEL). Drive-Fi manifesto. Coming soon." />
+  <meta name="description" content="Velvet AI — open-source, anti-OEM, in-car minting with Velvet Coin ($VELV). Drive-Fi manifesto. Coming soon." />
   <meta name="theme-color" content="#0b0a0c" />
 
   <!-- Open Graph / Social Preview -->
   <meta property="og:title" content="Velvet AI — In-Car Minting Begins" />
-  <meta property="og:description" content="Rebellion in silk. Freedom on the open road. Velvet Coin is Drive-Fi minting Mid 2026." />
+  <meta property="og:description" content="Rebellion in silk. Freedom on the open road. Velvet Coin ($VELV) is Drive-Fi minting Mid 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/" />
   <meta property="og:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=3" />
@@ -17,7 +17,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Velvet AI — In-Car Minting Begins" />
-  <meta name="twitter:description" content="Velvet Coin ($VEL) is preparing to launch. In-car minting, not just DeFi — Drive-Fi. Coming Mid 2026." />
+  <meta name="twitter:description" content="Velvet Coin ($VELV) is preparing to launch. In-car minting, not just DeFi — Drive-Fi. Coming Mid 2026." />
   <meta name="twitter:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=3" />
 
   <!-- Favicons & App Icons -->
@@ -92,6 +92,8 @@
     .links a{ color:var(--ink); text-decoration:none }
     .links a:hover{ text-decoration:underline }
 
+    .web3-card{ margin-top:22px; }
+
     /* Hidden Second Door button */
     .secret { display:none; margin-top:10px; }
     .secret a{
@@ -117,7 +119,7 @@
       <h1 id="logo">Velvet AI</h1>
       <p class="sub">
         Open-source, on-car intelligence riding on Automotive Grade Linux. Hardware that breathes, software that listens.
-        <br><strong>Velvet Coin ($VEL) is set to go live soon.</strong>
+        <br><strong>Velvet Coin ($VELV) is set to go live soon.</strong>
         <br><strong>“Coming soon” = in-car minting — not vibes. But real motion, real minting.</strong>
       </p>
       <nav style="margin-top:.4rem">
@@ -131,6 +133,25 @@
 
     <section class="hero">
       <div id="countdown" class="countdown">🚀 In-Car Minting — Coming Mid 2026</div>
+    </section>
+
+    <!-- NEW WEB3 IDENTITY CARD -->
+    <section id="web3" class="card web3-card">
+      <h2>On-Chain Identity</h2>
+      <p><strong>Domain:</strong> velvai.sol</p>
+      <p><strong>Ticker:</strong> VELV</p>
+      <p>
+        <strong>Contract:</strong>
+        <span style="font-family:monospace;">CUrikXiiRZgXfmfsVZD3ScNYTaAD4SX1DN8MBPADpump</span>
+      </p>
+      <p style="margin-top:0.8rem;">
+        <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X (Twitter): @coin_velvet</a>
+      </p>
+      <p>
+        <a href="https://pump.fun/coin/CUrikXiiRZgXfmfsVZD3ScNYTaAD4SX1DN8MBPADpump" target="_blank" rel="noopener">
+          View Velvet on Pump.fun
+        </a>
+      </p>
     </section>
 
     <section class="grid">
@@ -173,7 +194,7 @@
     let W, H, field=[], sparkles=[];
     let parallaxX = 0, parallaxY = 0;
 
-    function size(){ W = stars.width = twinkle.width = window.innerWidth; H = stars.height = twinkle.height = window.innerHeight; initStars(); }
+    function size(){ W = stars.width = twinkle.width = window.innerWidth; H = stars.height = window.innerHeight; initStars(); }
     window.addEventListener('resize', size);
 
     function initStars(){
