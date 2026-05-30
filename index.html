@@ -1,187 +1,802 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VELVET AI — Coming Soon</title>
-  <meta name="description" content="Velvet AI — open-source, anti-OEM, in-car minting with Velvet Coin ($VELV). Drive-Fi manifesto. Coming soon." />
-  <meta name="theme-color" content="#0b0a0c" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />  <title>Velvet Ecosystem — Local Machine Agency</title><meta
+name="description"
+content="Velvet is modular, offline-first machine intelligence infrastructure for local machine agency. Public docs, open-source repos, Drive OS, Forge OS, receipts, authority gates, and human sovereignty."
+/>
 
-  <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Velvet AI — In-Car Minting Begins" />
-  <meta property="og:description" content="Rebellion in silk. Freedom on the open road. Velvet Coin ($VELV) is Drive-Fi minting Mid 2026." />
+  <meta name="theme-color" content="#0b0a0c" />  <!-- Open Graph / Social Preview -->  <meta property="og:title" content="Velvet Ecosystem — Local Machine Agency" />
+  <meta
+    property="og:description"
+    content="Modular, offline-first machine intelligence infrastructure for embedded systems, beginning with vehicles and expanding across surfaces."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/" />
-  <meta property="og:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=3" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Velvet AI — In-Car Minting Begins" />
-  <meta name="twitter:description" content="Velvet Coin ($VELV) is preparing to launch. In-car minting, not just DeFi — Drive-Fi. Coming Mid 2026." />
-  <meta name="twitter:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=3" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=4" />  <!-- Twitter / X Card -->  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Velvet Ecosystem — Local Machine Agency" />
+  <meta
+    name="twitter:description"
+    content="Public docs, open-source repos, authority gates, receipts, and local-first machine intelligence under human sovereignty."
+  />
+  <meta name="twitter:image" content="https://overlandranger.github.io/Velvet-AI-Ecosystem/og.jpg?v=4" />  <!-- Favicons -->  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
   <link rel="apple-touch-icon" href="apple-touch-icon-192.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="apple-touch-icon-512.png" sizes="512x512">
-
-  <style>
-    :root{
-      --bg:#0b0a0c; --bg2:#171217;
-      --ink:#f2eef3; --mute:#9b909a; --accent:#e50914;
-      --gold:#E8C544; --gold-deep:#B9921F;
-      --glass:rgba(255,255,255,.08);
+  <link rel="apple-touch-icon" href="apple-touch-icon-512.png" sizes="512x512">  <style>
+    :root {
+      --bg: #0b0a0c;
+      --bg2: #171217;
+      --panel: #141015;
+      --panel2: #0f0c10;
+      --ink: #f2eef3;
+      --muted: #b8adb7;
+      --dim: #8f838d;
+      --accent: #e50914;
+      --accent-soft: rgba(229, 9, 20, 0.16);
+      --gold: #E8C544;
+      --gold-deep: #B9921F;
+      --glass: rgba(255,255,255,.08);
+      --glass-strong: rgba(255,255,255,.16);
+      --shadow: rgba(0,0,0,.38);
+      --max: 1120px;
+      --radius: 18px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; color:var(--ink);
-      font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        Helvetica,
+        Arial,
+        sans-serif;
       background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(229,9,20,.10), transparent 60%),
+        radial-gradient(1200px 600px at 80% -10%, rgba(229,9,20,.11), transparent 60%),
         radial-gradient(900px 500px at -10% 110%, rgba(229,9,20,.08), transparent 60%),
-        linear-gradient(180deg,var(--bg),var(--bg2));
-      overflow-x:hidden;
-    }
-    #stars,#twinkle{position:fixed; inset:0; z-index:-2; width:100vw; height:100vh; display:block}
-    #twinkle{mix-blend-mode:screen; opacity:.45}
-    .breath{position:fixed; inset:0; z-index:-1; pointer-events:none; filter:blur(48px); opacity:.6;
-      background:radial-gradient(160px 160px at 50% 18%, rgba(229,9,20,.14), transparent 60%);
-      animation:pulse 7s ease-in-out infinite}
-    @keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.08);opacity:.85}}
-
-    header, footer { text-align:center; padding:1rem; }
-    .wrap{max-width:1100px; margin:0 auto; padding:36px 18px 60px;}
-    .hero{ text-align:center; padding:10px 0 8px }
-    h1{ font-size:clamp(2rem,6vw,4rem); margin:.5rem 0; text-shadow:0 0 28px rgba(229,9,20,.25); cursor:default; }
-    .sub{ color:var(--mute); line-height:1.7; max-width:900px; margin:0.2rem auto 0; }
-
-    .countdown{
-      margin-top:14px; font-size:clamp(1.1rem,4.8vw,1.8rem); font-weight:800;
-      color:var(--accent); letter-spacing:.04em;
-      animation:glowPulse 1s infinite;
-    }
-    @keyframes glowPulse{
-      0%,100%{ text-shadow:0 0 8px rgba(229,9,20,.5) }
-      50%{ text-shadow:0 0 20px rgba(229,9,20,.95), 0 0 40px rgba(229,9,20,.6) }
+        linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
-    .grid{ display:grid; gap:16px; margin-top:24px; padding:0 2px }
-    @media(min-width:860px){ .grid{ grid-template-columns: 1.6fr .9fr; } }
-    .card{
-      background:linear-gradient(180deg,#141015,#0f0c10);
-      border:1px solid var(--glass); border-radius:16px; padding:18px 20px;
-      box-shadow:0 2px 22px rgba(0,0,0,.35);
+    #stars,
+    #twinkle {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      width: 100vw;
+      height: 100vh;
+      display: block;
     }
-    .card h2{ margin:.2rem 0 1rem; font-size:1rem; letter-spacing:.14em; opacity:.9; text-transform:uppercase }
-    .links ul{ list-style:none; padding:0; margin:0 }
-    .links li{ margin:.6rem 0 }
-    .links a{ color:var(--ink); text-decoration:none }
-    .links a:hover{ text-decoration:underline }
 
-    .web3-card{ margin-top:22px; }
-
-    .secret { display:none; margin-top:10px; }
-    .secret a{
-      display:inline-block; padding:.6rem .9rem; border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      background:linear-gradient(180deg,#1a1418,#120f12);
-      color:var(--ink); text-decoration:none; font-weight:700; letter-spacing:.02em;
-      box-shadow:0 10px 40px rgba(229,9,20,.18);
+    #twinkle {
+      mix-blend-mode: screen;
+      opacity: .45;
+      z-index: -2;
     }
-    .secret a:hover{ border-color:rgba(229,9,20,.45); box-shadow:0 16px 54px rgba(229,9,20,.26); }
 
-    footer{ margin-top:34px; color:#bdb2bb; font-size:.95rem; border-top:1px solid var(--glass); padding-top:18px }
-  </style>
-</head>
-<body>
+    .breath {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(50px);
+      opacity: .62;
+      background:
+        radial-gradient(220px 220px at 50% 18%, rgba(229,9,20,.16), transparent 65%),
+        radial-gradient(300px 300px at 15% 80%, rgba(232,197,68,.08), transparent 70%);
+      animation: pulse 7s ease-in-out infinite;
+    }
 
-  <!-- star layers -->
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: .48;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: .82;
+      }
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: .22em;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 18px 56px;
+    }
+
+    header {
+      text-align: center;
+      padding: 1rem 0 1.25rem;
+    }
+
+    .eyebrow {
+      margin: 0 auto .8rem;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: .2rem 0 .55rem;
+      font-size: clamp(2.4rem, 8vw, 5.8rem);
+      line-height: .93;
+      letter-spacing: -.055em;
+      text-shadow: 0 0 34px rgba(229,9,20,.24);
+      cursor: default;
+    }
+
+    .sub {
+      color: var(--muted);
+      line-height: 1.72;
+      max-width: 920px;
+      margin: .5rem auto 0;
+      font-size: clamp(1rem, 2.5vw, 1.18rem);
+    }
+
+    .doctrine-strip {
+      margin: 1.2rem auto 0;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .55rem;
+      max-width: 920px;
+    }
+
+    .pill {
+      border: 1px solid var(--glass-strong);
+      border-radius: 999px;
+      padding: .44rem .72rem;
+      background: rgba(255,255,255,.045);
+      color: var(--ink);
+      font-size: .86rem;
+      white-space: nowrap;
+    }
+
+    nav {
+      margin: 1.25rem auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      color: var(--dim);
+      font-size: .95rem;
+    }
+
+    nav a {
+      border: 1px solid var(--glass);
+      border-radius: 999px;
+      padding: .48rem .72rem;
+      background: rgba(255,255,255,.035);
+    }
+
+    nav a.primary {
+      border-color: rgba(229,9,20,.42);
+      box-shadow: 0 0 28px rgba(229,9,20,.12);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 18px 0 10px;
+    }
+
+    .statement {
+      margin: 0 auto;
+      max-width: 960px;
+      border: 1px solid rgba(229,9,20,.26);
+      background:
+        linear-gradient(180deg, rgba(229,9,20,.10), rgba(255,255,255,.035)),
+        linear-gradient(180deg, #141015, #0f0c10);
+      border-radius: var(--radius);
+      padding: clamp(18px, 4vw, 30px);
+      box-shadow: 0 2px 28px var(--shadow);
+    }
+
+    .statement strong {
+      color: var(--ink);
+    }
+
+    .statement-title {
+      margin: 0 0 .8rem;
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+
+    .statement p {
+      margin: .65rem auto 0;
+      color: var(--muted);
+      line-height: 1.72;
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 860px) {
+      .grid.two {
+        grid-template-columns: 1.25fr .85fr;
+      }
+
+      .grid.three {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background:
+        linear-gradient(180deg, var(--panel), var(--panel2));
+      border: 1px solid var(--glass);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 2px 22px var(--shadow);
+    }
+
+    .card.warning {
+      border-color: rgba(229,9,20,.34);
+      background:
+        linear-gradient(180deg, rgba(229,9,20,.08), rgba(255,255,255,.025)),
+        linear-gradient(180deg, var(--panel), var(--panel2));
+    }
+
+    .card.gold {
+      border-color: rgba(232,197,68,.28);
+      background:
+        linear-gradient(180deg, rgba(232,197,68,.07), rgba(255,255,255,.025)),
+        linear-gradient(180deg, var(--panel), var(--panel2));
+    }
+
+    .card h2 {
+      margin: .15rem 0 1rem;
+      font-size: .94rem;
+      letter-spacing: .16em;
+      opacity: .96;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin: 1rem 0 .45rem;
+      font-size: 1.03rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.68;
+      margin: .65rem 0;
+    }
+
+    .card strong {
+      color: var(--ink);
+    }
+
+    .links ul,
+    .clean-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .links li,
+    .clean-list li {
+      margin: .72rem 0;
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    .links a {
+      font-weight: 700;
+    }
+
+    .small {
+      font-size: .92rem;
+      color: var(--dim);
+    }
+
+    .mono {
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        "Liberation Mono",
+        "Courier New",
+        monospace;
+      font-size: .88rem;
+      overflow-wrap: anywhere;
+      color: var(--ink);
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--glass);
+      border-radius: 12px;
+      padding: .75rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin-top: 1rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--glass-strong);
+      background: rgba(255,255,255,.045);
+      padding: .7rem .92rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+      box-shadow: 0 10px 34px rgba(0,0,0,.18);
+    }
+
+    .button.primary {
+      border-color: rgba(229,9,20,.48);
+      background:
+        linear-gradient(180deg, rgba(229,9,20,.24), rgba(229,9,20,.10));
+      box-shadow: 0 14px 42px rgba(229,9,20,.16);
+    }
+
+    .quote {
+      margin-top: .95rem;
+      padding: 1rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,.035);
+      border-radius: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .secret {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .secret a {
+      display: inline-block;
+      padding: .65rem .9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: linear-gradient(180deg, #1a1418, #120f12);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .02em;
+      box-shadow: 0 10px 40px rgba(229,9,20,.18);
+    }
+
+    footer {
+      margin-top: 34px;
+      color: #bdb2bb;
+      font-size: .95rem;
+      border-top: 1px solid var(--glass);
+      padding: 22px 0 0;
+      text-align: center;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 520px) {
+      .wrap {
+        padding-inline: 14px;
+      }
+
+      nav a {
+        width: calc(50% - .4rem);
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style></head><body>
   <canvas id="stars" aria-hidden="true"></canvas>
   <canvas id="twinkle" aria-hidden="true"></canvas>
-  <div class="breath" aria-hidden="true"></div>
-
-  <div class="wrap">
+  <div class="breath" aria-hidden="true"></div>  <div class="wrap">
     <header>
-      <h1 id="logo">Velvet AI</h1>
-      <p class="sub">
-        Open-source, on-car intelligence riding on Automotive Grade Linux. Hardware that breathes, software that listens.
-        <br><strong>Velvet Coin ($VELV) launches soon.</strong>
-        <br><strong>“Coming soon” = in-car minting — real movement, real value.</strong>
-      </p>
+      <p class="eyebrow">Velvet Ecosystem</p>
+      <h1 id="logo">Local Machine Agency</h1>  <p class="sub">
+    Velvet is modular, offline-first machine intelligence infrastructure for embedded systems,
+    beginning with vehicles and expanding across surfaces.
+  </p>
 
-      <!-- UPDATED NAV WITH REDPAPER LINK -->
-      <nav style="margin-top:.4rem">
-        <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / Updates</a> ·
-        <a href="https://t.me/+BbV42gXzdzM2NzMx" target="_blank" rel="noopener">Telegram</a> ·
-        <a href="./redpaper.html" target="_blank" rel="noopener">Redpaper</a>
-      </nav>
-
-      <div id="secretDoor" class="secret">
-        <a href="./INVESTORS.md">🔑 Second Door</a>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div id="countdown" class="countdown">🚀 In-Car Minting — Coming Mid 2026</div>
-    </section>
-
-    <!-- WEB3 IDENTITY CARD -->
-    <section id="web3" class="card web3-card">
-      <h2>On-Chain Identity</h2>
-      <p><strong>Domain:</strong> velvai.sol</p>
-      <p><strong>Ticker:</strong> VELV</p>
-      <p>
-        <strong>Contract:</strong>
-        <span style="font-family:monospace;">CUrikXiiRZgXfmfsVZD3ScNYTaAD4SX1DN8MBPADpump</span>
-      </p>
-      <p style="margin-top:0.8rem;">
-        <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X (Twitter): @coin_velvet</a>
-      </p>
-      <p>
-        <a href="https://pump.fun/coin/CUrikXiiRZgXfmfsVZD3ScNYTaAD4SX1DN8MBPADpump" target="_blank" rel="noopener">
-          View Velvet on Pump.fun
-        </a>
-      </p>
-    </section>
-
-    <section class="grid">
-      <article class="card">
-        <h2>The Velvet Oath — Redpaper Teaser</h2>
-        <p>I, the keeper of Velvet’s fire, do solemnly swear—</p>
-        <p>To honor freedom over chains.<br>
-        To challenge the ordinary, defy the OEM.<br>
-        To craft with passion, not permission.<br>
-        To build, to break, to rebuild anew.<br>
-        To protect Velvet’s spirit — wild, open, untamed.</p>
-        <p>In this engine of code and light, <strong>tokens do not idle — they mint in motion.</strong><br>
-        Windows roll, stars scatter across the headliner,<br>
-        and value becomes velocity.</p>
-        <p>This is not DeFi. This is Drive-Fi.<br>
-        <strong>Mint by moving. Proven by presence. Own your road.</strong></p>
-      </article>
-
-      <aside class="card links">
-        <h2>Links</h2>
-        <ul>
-          <li><a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X / @coin_velvet</a></li>
-          <li><a href="https://t.me/+BbV42gXzdzM2NzMx" target="_blank" rel="noopener">Telegram community</a></li>
-          <li><a href="./redpaper.html" target="_blank" rel="noopener">Velvet Redpaper — A Touch of Control</a></li>
-        </ul>
-      </aside>
-    </section>
-
-    <footer>
-      © 2025 Velvet — Open-source, anti-lock-in.<br>
-      <em>“Rebellion in silk. Freedom on the open road.”</em>
-    </footer>
+  <div class="doctrine-strip" aria-label="Core doctrine">
+    <span class="pill">Owned, not rented</span>
+    <span class="pill">Offline-first</span>
+    <span class="pill">Receipt-backed</span>
+    <span class="pill">Human sovereignty</span>
   </div>
 
-  <script>
-    // --- STARFIELD, COUNTDOWN, SECRETS (unchanged original JS) ---
-  </script>
-</body>
+  <nav aria-label="Public links">
+    <a class="primary" href="ADD_NEW_DOCS_URL" target="_blank" rel="noopener">Docs</a>
+    <a class="primary" href="https://github.com/Velvet-ecosystem" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">X</a>
+    <a href="https://www.tiktok.com/@velvet_ai_os" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://youtube.com/@velvet_ai_os" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://buymeacoffee.com/VelvetAI" target="_blank" rel="noopener">Support</a>
+    <a href="mailto:velvetai.ecosystem@gmail.com">Contact</a>
+  </nav>
+
+  <div id="secretDoor" class="secret">
+    <a href="./INVESTORS.md">Second Door</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="statement">
+      <h2 id="hero-title" class="statement-title">
+        Velvet is not a chatbot. Not a dashboard skin. Not a cloud service.
+      </h2>
+
+      <p>
+        Velvet is infrastructure for local machine agency under human sovereignty.
+      </p>
+
+      <p>
+        Interfaces route intent. Gates authorize action. Executors touch hardware.
+        Receipts prove what happened.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid two" aria-label="Ecosystem entry points and doctrine">
+    <article class="card">
+      <h2>Ecosystem Entry Points</h2>
+
+      <p>
+        Start with the public docs, then move into the source repos.
+        The docs explain Velvet’s doctrine, architecture, surfaces, repo boundaries,
+        and safe authority model.
+      </p>
+
+      <div class="button-row">
+        <a class="button primary" href="ADD_NEW_DOCS_URL" target="_blank" rel="noopener">
+          Open Velvet Docs
+        </a>
+
+        <a class="button" href="https://github.com/Velvet-ecosystem" target="_blank" rel="noopener">
+          GitHub Organization
+        </a>
+      </div>
+
+      <ul class="clean-list" style="margin-top:1rem">
+        <li>
+          <strong>Core:</strong>
+          <a href="https://github.com/Velvet-ecosystem/velvet-ai-core" target="_blank" rel="noopener">
+            velvet-ai-core
+          </a>
+        </li>
+        <li>
+          <strong>Runtime:</strong>
+          <a href="https://github.com/Velvet-ecosystem/velvet-runtime" target="_blank" rel="noopener">
+            velvet-runtime
+          </a>
+        </li>
+        <li>
+          <strong>Receipts:</strong>
+          <a href="https://github.com/Velvet-ecosystem/velvet-receipts" target="_blank" rel="noopener">
+            velvet-receipts
+          </a>
+        </li>
+        <li>
+          <strong>Contact:</strong>
+          <a href="mailto:velvetai.ecosystem@gmail.com">
+            velvetai.ecosystem@gmail.com
+          </a>
+        </li>
+      </ul>
+    </article>
+
+    <aside class="card warning">
+      <h2>Core Doctrine</h2>
+
+      <p><strong>LLMs propose.</strong></p>
+      <p><strong>Gates authorize.</strong></p>
+      <p><strong>Executors act.</strong></p>
+      <p><strong>Receipts prove.</strong></p>
+
+      <div class="quote">
+        No direct prompt-to-hardware path. No social channel grants authority.
+        No token grants runtime control.
+      </div>
+    </aside>
+  </section>
+
+  <section class="grid three" aria-label="Velvet surfaces">
+    <article class="card">
+      <h2>Drive OS</h2>
+      <p>
+        Vehicle and mobility surfaces. The first body of Velvet begins with retrofit vehicle intelligence,
+        CAN-aware adapters, local control paths, and receipt-backed authority.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Forge OS</h2>
+      <p>
+        Fabrication surfaces such as 3D printers, CNC, and maker systems.
+        The same doctrine applies: local control, bounded adapters, and receipts.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Castle / Move / Industries</h2>
+      <p>
+        Future home, portable, and industrial surfaces.
+        Each surface gets its own adapter pattern without becoming Velvet’s authority source.
+      </p>
+    </article>
+  </section>
+
+  <section class="grid two" aria-label="DriveFi and public channels">
+    <article class="card gold">
+      <h2>DriveFi and VELV</h2>
+
+      <p>
+        DriveFi is Velvet’s experimental economic layer for receipt-backed machine work,
+        motion, presence, and local value generation.
+      </p>
+
+      <p>
+        <strong>VELV is not required</strong> to use, study, build, or contribute to Velvet’s
+        core architecture.
+      </p>
+
+      <p>
+        Token ownership does not grant runtime authority, governance control, hardware access,
+        executor privileges, or system permissions.
+      </p>
+
+      <p>
+        The token layer must never bypass Velvet’s authority gates.
+      </p>
+
+      <h3>Web3 Identity</h3>
+      <p><strong>Domain:</strong> velvai.sol</p>
+      <p><strong>Ticker:</strong> VELV</p>
+
+      <div class="mono">
+        Contract:
+        CUr ikXiiRZgXfmfsVZD3ScNYTaAD4SX1DN8MBPADpump
+      </div>
+
+      <p class="small">
+        Remove the space in the displayed contract if copying. It is visually separated here
+        to avoid cramped mobile overflow.
+      </p>
+
+      <div class="button-row">
+        <a
+          class="button"
+          href="https://pump.fun/coin/CUrikXiiRZgXfmfsVZD3ScNYTaAD4SX1DN8MBPADpump"
+          target="_blank"
+          rel="noopener"
+        >
+          View VELV on Pump.fun
+        </a>
+      </div>
+    </article>
+
+    <aside class="card links">
+      <h2>Public Channels</h2>
+
+      <p>
+        Official public channels for following Velvet development, supporting the project,
+        and finding ecosystem links.
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://github.com/Velvet-ecosystem" target="_blank" rel="noopener">
+            GitHub
+          </a>
+          <br><span class="small">Public repositories, docs, doctrine, and source code.</span>
+        </li>
+
+        <li>
+          <a href="https://x.com/coin_velvet" target="_blank" rel="noopener">
+            X / @coin_velvet
+          </a>
+          <br><span class="small">Development notes, doctrine posts, and ecosystem updates.</span>
+        </li>
+
+        <li>
+          <a href="https://www.tiktok.com/@velvet_ai_os" target="_blank" rel="noopener">
+            TikTok / @velvet_ai_os
+          </a>
+          <br><span class="small">Short-form build updates and future public demos.</span>
+        </li>
+
+        <li>
+          <a href="https://youtube.com/@velvet_ai_os" target="_blank" rel="noopener">
+            YouTube / @velvet_ai_os
+          </a>
+          <br><span class="small">Longer demos, explanations, and development logs.</span>
+        </li>
+
+        <li>
+          <a href="https://buymeacoffee.com/VelvetAI" target="_blank" rel="noopener">
+            Buy Me a Coffee
+          </a>
+          <br><span class="small">Optional support for development, testing, hardware, and documentation.</span>
+        </li>
+
+        <li>
+          <a href="mailto:velvetai.ecosystem@gmail.com">
+            velvetai.ecosystem@gmail.com
+          </a>
+          <br><span class="small">Public contact for project questions and collaboration.</span>
+        </li>
+      </ul>
+
+      <div class="quote">
+        Public channels are communication and support surfaces only. They do not grant authority over
+        Velvet systems, repos, runtime behavior, governance decisions, or execution paths.
+      </div>
+    </aside>
+  </section>
+
+  <section class="grid two" aria-label="Redpaper archive and legacy links">
+    <article class="card">
+      <h2>DriveFi Redpaper Archive</h2>
+
+      <p>
+        The early Velvet redpaper framed the economic vision:
+        mint by movement, prove by presence, and resist OEM lock-in.
+      </p>
+
+      <p>
+        That vision remains experimental and must stay subordinate to Velvet’s safety,
+        authority, and receipt doctrine.
+      </p>
+
+      <div class="quote">
+        This is not DeFi. This is DriveFi. Mint by moving. Proven by presence.
+        Own your road.
+      </div>
+
+      <div class="button-row">
+        <a class="button" href="./redpaper.html" target="_blank" rel="noopener">
+          Open Redpaper Archive
+        </a>
+      </div>
+    </article>
+
+    <aside class="card">
+      <h2>Boundary Statement</h2>
+
+      <p>
+        Velvet’s public repos and docs are early architectural baselines.
+        Some modules are scaffolds, some are active implementation layers,
+        and some are doctrine-first boundaries.
+      </p>
+
+      <p>
+        Repo boundaries are not cosmetic. They prevent authority leakage.
+      </p>
+
+      <p>
+        No single repo, social channel, token layer, or hosted AI collaborator
+        should quietly become the whole machine.
+      </p>
+    </aside>
+  </section>
+</main>
+
+<footer>
+  © 2026 Velvet Ecosystem — Owned, not rented. Offline-first. Receipt-backed.
+  <br>
+  <em>Rebellion in silk. Local machine agency under human sovereignty.</em>
+</footer>
+
+  </div>  <script>
+    const docsUrl = "ADD_NEW_DOCS_URL";
+
+    document.querySelectorAll('a[href="ADD_NEW_DOCS_URL"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (docsUrl === "ADD_NEW_DOCS_URL") {
+          event.preventDefault();
+          alert("Docs URL placeholder still needs to be replaced.");
+        }
+      });
+    });
+
+    function setupCanvas(canvasId, density, alphaMin, alphaMax, radiusMin, radiusMax, speed) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext("2d");
+      let stars = [];
+
+      function resize() {
+        const ratio = window.devicePixelRatio || 1;
+        canvas.width = Math.floor(window.innerWidth * ratio);
+        canvas.height = Math.floor(window.innerHeight * ratio);
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+        const count = Math.floor((window.innerWidth * window.innerHeight) / density);
+        stars = Array.from({ length: count }, () => ({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: radiusMin + Math.random() * (radiusMax - radiusMin),
+          a: alphaMin + Math.random() * (alphaMax - alphaMin),
+          d: Math.random() * Math.PI * 2,
+          v: speed * (0.35 + Math.random())
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        for (const star of stars) {
+          star.d += star.v;
+          const pulse = (Math.sin(star.d) + 1) / 2;
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255, 238, 246, ${star.a * (0.45 + pulse * 0.55)})`;
+          ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", resize, { passive: true });
+      resize();
+      draw();
+    }
+
+    setupCanvas("stars", 5200, 0.12, 0.52, 0.45, 1.35, 0.004);
+    setupCanvas("twinkle", 14500, 0.10, 0.72, 0.55, 1.75, 0.018);
+
+    const logo = document.getElementById("logo");
+    const secretDoor = document.getElementById("secretDoor");
+    let clicks = 0;
+    let timer = null;
+
+    logo.addEventListener("click", () => {
+      clicks += 1;
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        clicks = 0;
+      }, 1200);
+
+      if (clicks >= 5) {
+        secretDoor.style.display = "block";
+        clicks = 0;
+      }
+    });
+  </script></body>
 </html>
